@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BasicTable;
+use App\Models\ImprofProfile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class BasicTableController extends Controller
+class ImprofProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +17,21 @@ class BasicTableController extends Controller
      */
     public function index()
     {
-        $users = BasicTable::SimplePaginate(3);;
+
+
+            $users = ImprofProfile::SimplePaginate(3);
+
         //$users = DB::table('basic_tables')->simplePaginate(3);;
-        return view('dashboard', compact('users'));
+
+            return view('dashboard', compact('users'));
+
         //$users = DB::table('basic_tables')->simplePaginate(3);;
         //return view('dashboard',['users'=>$users]);
+
+    }
+
+    public function test()
+    {
 
     }
 
@@ -47,21 +59,21 @@ class BasicTableController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BasicTable  $basicTable
+     * @param  \App\Models\ImprofProfile  $basicTable
      * @return \Illuminate\Http\Response
      */
-    public function show(BasicTable $basicTable)
+    public function show(ImprofProfile $basicTable)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BasicTable  $basicTable
+     * @param  \App\Models\ImprofProfile  $basicTable
      * @return \Illuminate\Http\Response
      */
-    public function edit(BasicTable $basicTable)
+    public function edit(ImprofProfile $basicTable)
     {
         //
     }
@@ -70,10 +82,10 @@ class BasicTableController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BasicTable  $basicTable
+     * @param  \App\Models\ImprofProfile  $basicTable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BasicTable $basicTable)
+    public function update(Request $request, ImprofProfile $basicTable)
     {
         //
     }
@@ -81,10 +93,10 @@ class BasicTableController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BasicTable  $basicTable
+     * @param  \App\Models\ImprofProfile  $basicTable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BasicTable $basicTable)
+    public function destroy(ImprofProfile $basicTable)
     {
         //
     }

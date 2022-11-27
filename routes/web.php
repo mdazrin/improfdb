@@ -1,6 +1,7 @@
 <?php
 
-use \App\Http\Controllers\BasicTableController;
+use \App\Http\Controllers\UserProfileController;
+use \App\Http\Controllers\ImprofProfileController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::get('/',function (){
 })->middleware('guest')->name('home');
 
 Route::get('/login',function (){
-    return view('login');
+   return view('login');
 })->middleware('guest')->name('login');
 
 Route::post('/login',[SessionController::class,'login'])
@@ -33,7 +34,9 @@ Route::post('/logout',[LogoutController::class,'logout'])
     ->middleware('auth')
     ->name('/logout');
 
-Route::resource('basic', BasicTableController::class)
+Route::resource('basic', ImprofProfileController::class)
 
     ->only('index')
     ->middleware('auth');
+
+Route::get('/userprofile',[UserProfileController::class,'index']);

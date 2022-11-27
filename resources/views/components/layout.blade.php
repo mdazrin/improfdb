@@ -10,7 +10,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/basic">View Table</a>
+                        <a class="nav-link active" aria-current="page" href="/basic">Basic Table</a>
                     </li>
                     @endauth
                     @auth
@@ -21,11 +21,6 @@
                             </form>
                         </li>
                     @endauth
-                    @guest
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
-                      </li>
-                    @endguest
                 </ul>
             </div>
         </div>

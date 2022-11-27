@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('basic_tables', function (Blueprint $table) {
-            $table->id();
+        Schema::create('improf_profiles', function (Blueprint $table) {
+            $table->id('improf_id');
             $table->timestamps();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('ppi');
             $table->string('batch');
+
+
         });
     }
 

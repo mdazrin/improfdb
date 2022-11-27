@@ -50,9 +50,9 @@ class User extends Authenticatable
         );
     }
 
-    public function BasicTable()
+    public function ImprofProfile()
     {
-        return $this->hasOne('App\Models\BasicTable');
+        return $this->hasOne(ImprofProfile::class);
     }
 }
 
