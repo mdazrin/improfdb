@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('improf_profiles', function (Blueprint $table) {
-            $table->id('improf_id');
+            $table->id();
             $table->timestamps();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('ppi');
             $table->string('batch');
+
+            $table->foreignId('user_id');
 
 
         });
