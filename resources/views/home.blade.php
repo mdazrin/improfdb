@@ -1,24 +1,21 @@
 <x-layout>
     <x-slot name="content">
-        <main class="form-signin w-30 m-auto container-sm">
-            <form method="post" action="/login">
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-                @csrf
-                <div class="form-floating">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="name@example.com">
-                    <label for="floatingInput">Username</label>
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="img-fluid img-thumbnail" src="{{ asset('storage/images/Improf.png')}}" alt="Improf Logo" width="300" height="250">
+            <h1 class="display-5 fw-bold">Improf Database System</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    This site is the database system for Improf. Please login to enter
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="{{ route('login') }}">
+                        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">
+                            Login
+                        </button>
+
+                    </a>
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                @if($errors->any())
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                @endif
-            </form>
-        </main>
+            </div>
+        </div>
     </x-slot>
 </x-layout>

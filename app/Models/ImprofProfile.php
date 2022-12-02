@@ -11,6 +11,15 @@ class ImprofProfile extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
+    protected $fillable = [
+        'firstname',
+        'lastname',
+        'ppi',
+        'batch',
+
+
+    ];
+
     public function User()
     {
         return $this->hasOne(User::class);

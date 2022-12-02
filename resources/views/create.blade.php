@@ -1,16 +1,32 @@
 <x-layout>
     <x-slot name="content">
-            <form method="post" action="/login">
-                @csrf
-                <input type="text" name="name" id="name" value="{{old('name')}}">
-                <input type="password" name="password" id="password">
-                <button type="submit">Submit</button>
-                @if($errors->any())
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                @endif
+        <form action="{{ route('basic.store') }}" enctype="multipart/form-data" method="post">
+            @csrf
+            <div class="mb-3">
+                <label>FirstName</label>
+                <input type="text" name="firstname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Lastname</label>
+                <input type="text" name="lastname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>PPI</label>
+                <input type="text" name="ppi" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Batch</label>
+                <input type="text" name="batch" class="form-control">
+            </div>
 
-            </form>
+            <div class="mb-3">
+                <label>Image:</label>
+                <input type="file" name="avatar" class="form-control">
+            </div>
+
+            <div class="d-grid">
+                <button class="btn btn-primary">Store</button>
+            </div>
+        </form>
     </x-slot>
 </x-layout>

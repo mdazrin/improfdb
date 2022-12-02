@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\ImprofProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class ImprofProfileController extends Controller
     {
 
 
+        //$users = ImprofProfile::latest()->get();
             $users = ImprofProfile::SimplePaginate(3);
 
         //$users = DB::table('basic_tables')->simplePaginate(3);;
@@ -42,7 +44,7 @@ class ImprofProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -53,7 +55,14 @@ class ImprofProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $client = ImprofProfile::create($input);
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $client->addMediaFromRequest('avatar')->toMediaCollection();
+        }
+
+        return redirect()->route('basic');
+
     }
 
     /**

@@ -10,17 +10,23 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/basic">Basic Table</a>
+                        <a class="nav-link active" aria-current="page" href="/basic">Improf Profile</a>
                     </li>
-                    @endauth
-                    @auth
                         <li class="nav-item">
-                            <form method="POST" action={{ route('/logout') }}>
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
+                            <a class="nav-link active" aria-current="page" href="/basic">Personal Info</a>
                         </li>
+                     <li class="nav-item">
+                        <form method="POST" action={{ route('logout') }}>
+                            @csrf
+                            <button class="btn btn-lg btn-primary" type="submit">Logout</button>
+                        </form>
+                     </li>
                     @endauth
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ route('login') }}>Login</a>
+                    </li>
+                    @endguest
                 </ul>
             </div>
         </div>
