@@ -2,10 +2,12 @@
     <x-slot name="content">
         <main class="form-signin w-30 m-auto container-sm">
             @foreach($users as $user)
-            <form method="post" action="/userprofile">
+            <form method="get" action={{ route('user-profile') }}>
                 <h1 class="h3 mb-3 fw-normal">User Profile</h1>
                 @csrf
 
+
+                <input type="text" name="search" class="form-control" value="{{request('search')}}">
 
 
                 <!--Improf_Profiles -->

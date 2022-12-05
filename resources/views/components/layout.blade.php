@@ -2,6 +2,7 @@
 <title>Improf</title>
 <head>
     @vite(['resources/js/app.js'])
+    <!-- Include the basic styles & the library -->
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 ">
@@ -10,11 +11,14 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/basic">Improf Profile</a>
+                        <a class="nav-link active" aria-current="page" href={{ route('basic') }}>Improf Profile</a>
                     </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/basic">Personal Info</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ route('personal-info') }}>Personal Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ route('users.show',auth()->user()) }}>Your Profile</a>
+                    </li>
                      <li class="nav-item">
                         <form method="POST" action={{ route('logout') }}>
                             @csrf

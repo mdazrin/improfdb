@@ -21,7 +21,7 @@ class ImprofProfileFactory extends Factory
             'lastname' => fake()->lastname(),
             'ppi' => fake()->lastname(),
             'batch' => fake()->lastname(),
-            'user_id' => fake()->unique()->numberBetween(1,50),
+            //'user_id' => fake()->unique()->numberBetween(1,50),
         ];
     }
 }

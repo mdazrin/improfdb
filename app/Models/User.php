@@ -50,9 +50,9 @@ class User extends Authenticatable
         );
     }
 
-    public function ImprofProfile()
+    public function image()
     {
-        return $this->hasOne(ImprofProfile::class);
+        return $this->morphOne(Image::class,'imageable');
     }
 }
 

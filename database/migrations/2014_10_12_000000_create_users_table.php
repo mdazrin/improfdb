@@ -22,6 +22,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('ppi');
+            $table->string('batch');
+
 
         });
     }

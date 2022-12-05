@@ -4,7 +4,7 @@
                 <form class="d-flex justify-content-center flex-column border rounded" method="post" action={{ route('login') }}>
                     @csrf
                     <div class="mx-auto">
-                        <img class="img-fluid img-thumbnail" src="{{ asset('storage/images/Improf.png')}}" alt="Improf Logo" width="300" height="300">
+                        <img class="img-fluid img-thumbnail" src="{{ asset('images/Improf.png')}}" alt="Improf Logo" width="300" height="300">
                     </div>
                     <div class="m-1 mx-3">
                         <label class="form-label">Username</label>

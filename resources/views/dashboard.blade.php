@@ -3,6 +3,10 @@
         <div>
             Hello, welcome to dashboard, click on view link to view table
         </div>
+        <form method="get" action={{ route('basic.show_search') }}>
+            <input type="text" name="search" class="form-control" value="{{request('search')}}">
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+        </form>
         <table class="table">
             <thead>
             <tr>
@@ -23,15 +27,15 @@
                 <td>{{ $user->ppi }}</td>
                 <td>{{ $user->batch }}</td>
                 <td>
-                    <img class="img-thumbnail img-fluid container-sm" style="width:300px;height:300px;" src="{{$user->getFirstMediaUrl()}}"/>
+                    <img class="img-thumbnail img-fluid container-sm" style="width:300px;height:300px;" src="{{ (asset($user->image->url)) }}"/>
                 </td>
 
             </tr>
             @endforeach
             </tbody>
         </table>
-         <div class="d-flex justify-content-center">
-           {!! $users->links() !!}
+        <div class="d-flex justify-content-center">
+            {!! $users->links() !!}
         </div>
     </x-slot>
 </x-layout>

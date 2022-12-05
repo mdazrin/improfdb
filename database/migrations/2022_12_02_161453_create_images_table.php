@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('improf_profiles', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->string('url')->nullable();
             $table->timestamps();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('ppi');
-            $table->string('batch');
-
-
+            $table->integer('imageable_id');
+            $table->string('imageable_type');
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('basic_tables');
+        Schema::dropIfExists('images');
     }
 };
