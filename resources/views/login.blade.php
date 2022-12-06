@@ -15,7 +15,7 @@
                         <input type="password" class="form-control  align-items-center" id="password" name="password">
                     </div>
                     <div class="m-1 mx-3">
-                        <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+                        <button class="btn btn-lg btn-primary" type="submit">Log In</button>
                     </div>
                     @if($errors->any())
                         @foreach($errors->all() as $error)

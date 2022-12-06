@@ -11,10 +11,10 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('basic') }}>Improf Profile</a>
+                        <a class="nav-link active" aria-current="page" href={{ route('users.index') }}>Improf Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('personal-info') }}>Personal Info</a>
+                        <a class="nav-link active" aria-current="page" href={{ route('personals-info.index') }}>Personal Info</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href={{ route('users.show',auth()->user()) }}>Your Profile</a>
@@ -22,7 +22,7 @@
                      <li class="nav-item">
                         <form method="POST" action={{ route('logout') }}>
                             @csrf
-                            <button class="btn btn-lg btn-primary" type="submit">Logout</button>
+                            <button class="btn btn-dark" type="submit">Logout</button>
                         </form>
                      </li>
                     @endauth

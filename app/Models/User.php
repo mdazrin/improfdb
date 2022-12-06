@@ -54,6 +54,22 @@ class User extends Authenticatable
     {
         return $this->morphOne(Image::class,'imageable');
     }
+
+    /**
+     * Scope a query to only include users of a given type.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  mixed  $filters
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFilter($query)
+    {
+        if(request('check-user'))
+        {
+            $query
+                ->where('firstname','like','%' . request('check-user') . '%');
+        }
+    }
 }
 
 

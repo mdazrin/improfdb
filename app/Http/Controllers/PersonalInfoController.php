@@ -15,7 +15,7 @@ class PersonalInfoController extends Controller
     public function index()
     {
         $users = PersonalInfo::SimplePaginate(3);
-        return view('personalinfo', compact('users'));
+        return view('personals-info.index', compact('users'));
     }
 
     /**
