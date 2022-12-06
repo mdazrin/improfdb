@@ -17,7 +17,7 @@ class UserController extends Controller
     {
 
         return view('users.index',[
-            'users'=>User::latest()->filter()->paginate(4),
+            'users'=>User::sortable()->filter()->paginate(4),
         ]);
 
 

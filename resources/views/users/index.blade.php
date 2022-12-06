@@ -16,10 +16,10 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Firstname</th>
-                        <th scope="col">Lastname</th>
-                        <th scope="col">TOC/PPI</th>
-                        <th scope="col">Batch</th>
+                        <th scope="col">@sortablelink('firstname')</th>
+                        <th scope="col">@sortablelink('lastname')</th>
+                        <th scope="col">@sortablelink('ppi')</th>
+                        <th scope="col">@sortablelink('batch')</th>
                         <th scope="col">Picture</th>
                     </tr>
                     </thead>
