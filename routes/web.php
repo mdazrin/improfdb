@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PasController;
 use \App\Http\Controllers\PersonalInfoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
@@ -37,7 +38,6 @@ Route::post('/logout',[LogoutController::class,'logout'])
     ->middleware('auth')
     ->name('logout');
 
-//Route::get('/personal-info',[PersonalInfoController::class,'index'])->name('personal-info');
-
-Route::resource('users',UserController::class);
-Route::resource('personals-info',PersonalInfoController::class);
+Route::resource('users',UserController::class)->except('store');
+Route::resource('personals-info',PersonalInfoController::class)->only('index');
+Route::resource('pas',PasController::class)->only('index');

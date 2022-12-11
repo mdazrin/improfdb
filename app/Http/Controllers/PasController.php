@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PersonalInfo;
+use App\Models\Pas;
 use Illuminate\Http\Request;
 
-class PersonalInfoController extends Controller
+class PasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class PersonalInfoController extends Controller
      */
     public function index()
     {
-
-        return view('personals-info.index',[
-            'users'=>PersonalInfo::sortable()->filter()->paginate(4),
-        ]);
+        //
     }
 
     /**
@@ -44,10 +41,10 @@ class PersonalInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PersonalInfo  $personalInfo
+     * @param  \App\Models\Pas  $pas
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonalInfo $personalInfo)
+    public function show(Pas $pas)
     {
         //
     }
@@ -55,10 +52,10 @@ class PersonalInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PersonalInfo  $personalInfo
+     * @param  \App\Models\Pas  $pas
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonalInfo $personalInfo)
+    public function edit(Pas $pas)
     {
         //
     }
@@ -67,10 +64,10 @@ class PersonalInfoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PersonalInfo  $personalInfo
+     * @param  \App\Models\Pas  $pas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PersonalInfo $personalInfo)
+    public function update(Request $request, Pas $pas)
     {
         //
     }
@@ -78,10 +75,10 @@ class PersonalInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PersonalInfo  $personalInfo
+     * @param  \App\Models\Pas  $pas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PersonalInfo $personalInfo)
+    public function destroy(Pas $pas)
     {
         //
     }

@@ -82,11 +82,32 @@ class UserController extends Controller
     {
         //get the user id
         $test = User::find($user->id);
-
         $image = $test->image;
-        $path = $request->file('avatar')->store('images');
-        $image->url = $path;
-        $image->save();
+
+        //validate and save everything except picture
+        $validateData = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'ppi' => 'required|integer',
+            'batch' => 'required',
+            'avatar' => 'image',
+        ]);
+
+        $test->update($validateData);
+        $test->save();
+
+        //save picture
+        if ($request->hasFile('avatar'))
+        {
+            $path = $request->file('avatar')->store('images');
+            $image->url = $path;
+            $image->save();
+        }
+
+
+        return redirect()
+            ->back()
+            ->withStatus('Profile has been updated');
 
 
     }

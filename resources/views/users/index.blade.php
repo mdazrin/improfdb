@@ -2,12 +2,14 @@
     <x-slot name="content">
         <div class="container-lg">
             <form method="get">
-                <div class="container">
-                    <label>Search Bar</label>
-                    <input type="text" name="check-user">
-                </div>
-                <div class="d-grid">
-                    <button class="btn btn-primary btn-sm w-25">Update</button>
+                <div class="d-flex flex-row">
+                    <div class="p-2">
+                        <label>Search Bar</label>
+                        <input type="text" name="check-user">
+                    </div>
+                    <div class="p-2">
+                        <button class="btn btn-primary btn-sm">Search</button>
+                    </div>
                 </div>
             </form>
 
@@ -15,7 +17,6 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">@sortablelink('firstname')</th>
                         <th scope="col">@sortablelink('lastname')</th>
                         <th scope="col">@sortablelink('ppi')</th>
@@ -26,12 +27,11 @@
                     <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <th scope="row">1</th>
                             <td>{{ $user->firstname }}</td>
                             <td>{{ $user->lastname }}</td>
                             <td>{{ $user->ppi }}</td>
                             <td>{{ $user->batch }}</td>
-                            <td><img class="img-thumbnail img-fluid" src="{{ (asset($user->image->url)) }}" width="300" height="300"/></td>
+                            <td><img class="img-thumbnail avatar" src="{{ (asset($user->image->url)) }}"/></td>
 
                         </tr>
                     @endforeach

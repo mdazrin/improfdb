@@ -23,6 +23,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'firstname',
+        'lastname',
+        'ppi',
+        'batch',
     ];
 
     public $sortable = [
@@ -76,8 +80,16 @@ class User extends Authenticatable
         if(request('check-user'))
         {
             $query
-                ->where('firstname','like','%' . request('check-user') . '%');
+                ->where('firstname','like','%' . request('check-user') . '%')
+                ->orWhere('lastname','like','%' . request('check-user') . '%')
+                ->orWhere('ppi','like','%' . request('check-user') . '%')
+                ->orWhere('batch','like','%' . request('check-user') . '%');
         }
+    }
+
+    public function personal_info()
+    {
+        return $this->hasOne(PersonalInfo::class);
     }
 }
 
