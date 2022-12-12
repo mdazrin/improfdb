@@ -10,6 +10,21 @@ class PersonalInfo extends Model
 {
     use HasFactory, Sortable;
 
+    protected $fillable = [
+
+        'ic',
+        'mailing_address',
+        'date_of_birth',
+        'tel_no',
+        'bank_account',
+        'bank_name',
+        'sex',
+        'birthday_month',
+        'facebook',
+        'twitter',
+        'instagram'
+    ];
+
     public $sortable = [
 
         'ic',
@@ -33,4 +48,10 @@ class PersonalInfo extends Model
                 ->where('mailing_address','like','%' . request('check-user') . '%');
         }
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

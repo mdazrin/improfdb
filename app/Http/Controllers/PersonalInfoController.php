@@ -15,7 +15,7 @@ class PersonalInfoController extends Controller
     public function index()
     {
 
-        return view('personals-info.index',[
+        return view('personals.index',[
             'users'=>PersonalInfo::sortable()->filter()->paginate(4),
         ]);
     }
@@ -60,7 +60,9 @@ class PersonalInfoController extends Controller
      */
     public function edit(PersonalInfo $personalInfo)
     {
-        //
+        return view('personals.edit',[
+            'personal'=>$personalInfo,
+        ]);
     }
 
     /**

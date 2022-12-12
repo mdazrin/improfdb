@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('twitter');
             $table->string('instagram');
 
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
         });
     }
 

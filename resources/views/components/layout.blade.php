@@ -23,21 +23,31 @@
                         <a class="nav-link active" aria-current="page" href={{ route('users.index') }}>Improf Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('personals-info.index') }}>Personal Info</a>
+                        <a class="nav-link active" aria-current="page" href={{ route('personals.index') }}>Personal Info</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            Your Profile
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" aria-current="page" href={{ route('users.show',auth()->user()) }}>Show Your Profile</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('users.show',auth()->user()) }}>Show</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" aria-current="page" href={{ route('users.edit',auth()->user()) }}>Edit Your Profile</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('users.edit',auth()->user()) }}>Edit</a>
                             </li>
                         </ul>
                     </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Personal Profile
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" aria-current="page" href={{ route('personals.edit',auth()->user()) }}>Edit</a>
+                                </li>
+                            </ul>
+                        </li>
                 </ul>
                 <form method="POST" action={{ route('logout') }}>
                     @csrf

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\PersonalInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
 

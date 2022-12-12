@@ -39,5 +39,8 @@ Route::post('/logout',[LogoutController::class,'logout'])
     ->name('logout');
 
 Route::resource('users',UserController::class)->except('store');
-Route::resource('personals-info',PersonalInfoController::class)->only('index');
+
+Route::resource('personals',PersonalInfoController::class)
+    ->only(['index','store','edit','update']);
+
 Route::resource('pas',PasController::class)->only('index');
