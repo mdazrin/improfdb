@@ -1,10 +1,19 @@
 <?php
 
+
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PasController;
 use \App\Http\Controllers\PersonalInfoController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SessionController;
+
+use App\Http\Controllers\AcademicTableController;
+use App\Http\Controllers\PasTableController;
+use App\Http\Controllers\ProfessionTableController;
+use App\Http\Controllers\PersonalTableController;
+use App\Http\Controllers\ImprofTableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +47,23 @@ Route::post('/logout',[LogoutController::class,'logout'])
     ->middleware('auth')
     ->name('logout');
 
-Route::resource('users',UserController::class)->except('store');
+//output tables only
+//Route::resource('improf-profiles-table',ImprofTableController::class)->only('index');
+Route::resource('personal-info-table',PersonalTableController::class)->only('index');
+Route::resource('pas-table',PasTableController::class)->only('index');
+Route::resource('profession-table',ProfessionTableController::class)->only('index');
+Route::resource('academic-table',AcademicTableController::class)->only('index');
 
-Route::resource('personals',PersonalInfoController::class)
-    ->only(['index','store','edit','update']);
+//model
+Route::resource('personalInfo',PersonalInfoController::class)->only('index','show','store','edit','update');
+Route::resource('users',UserController::class)->only(['index','edit','update','store']);
+Route::resource('locations',LocationController::class)->only(['index','edit','update','store']);
 
-Route::resource('pas',PasController::class)->only('index');
+//User self-edit profile
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+

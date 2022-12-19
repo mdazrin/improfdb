@@ -13,19 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pas', function (Blueprint $table) {
+        Schema::create('academics', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
-            $table->integer('pas_no');
-            $table->text('involvement');
-            $table->string('cawangan');
-            $table->string('kawasan');
-            $table->string('negeri');
-            $table->string('interest_one');
-            $table->string('interest_two');
-            $table->string('interest_three');
-
+            $table->string('course');
+            $table->string('intake');
+            $table->string('grade_year');
+            $table->string('academic_level');
         });
     }
 
@@ -36,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pas');
+        Schema::dropIfExists('academics');
     }
 };

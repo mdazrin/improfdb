@@ -6,33 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class Pas extends Model
+class Academic extends Model
 {
     use HasFactory, Sortable;
 
     protected $fillable = [
 
-        'pas_no',
-        'involvement',
-        'cawangan',
-        'kawasan',
-        'negeri',
-        'interest_one',
-        'interest_two',
-        'interest_three',
+        'course',
+        'intake',
+        'grade_year',
+        'academic_level',
 
     ];
 
     public $sortable = [
 
-        'pas_no',
-        'involvement',
-        'cawangan',
-        'kawasan',
-        'negeri',
-        'interest_one',
-        'interest_two',
-        'interest_three',
+        'course',
+        'intake',
+        'grade_year',
+        'academic_level',
     ];
 
     public function scopeFilter($query)

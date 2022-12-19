@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot name="content">
         <div class="container">
-            <form action="{{ route('personals.update',1)}}" method="post">
+            <form method="POST" action="{{ route('personalInfo.update',$personal)}}" >
                 @csrf
                 @method('patch')
                 <a>{{$personal->ic}}</a>

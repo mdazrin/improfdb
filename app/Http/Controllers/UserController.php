@@ -86,7 +86,7 @@ class UserController extends Controller
         $image = $test->image;
 
         //validate and save everything except picture
-        $validateData = $request->validate([
+        $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'ppi' => 'required|integer',
@@ -94,7 +94,6 @@ class UserController extends Controller
             'avatar' => 'image',
         ]);
 
-        $test->update($validateData);
         $test->save();
 
         //save picture

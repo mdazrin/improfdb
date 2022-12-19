@@ -19,35 +19,34 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     @auth
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('users.index') }}>Improf Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{ route('personals.index') }}>Personal Info</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Your Profile
+                            Tables
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" aria-current="page" href={{ route('users.show',auth()->user()) }}>Show</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('users.index') }}>Improf Profile</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" aria-current="page" href={{ route('users.edit',auth()->user()) }}>Edit</a>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('personal-info-table.index') }}>Personal Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('pas-table.index') }}>Pas Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('profession-table.index') }}>Profession Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('academic-table.index') }}>Academic Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('locations.index') }}>Location Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('profile.edit') }}>Edit Profile</a>
                             </li>
                         </ul>
                     </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Personal Profile
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" aria-current="page" href={{ route('personals.edit',auth()->user()) }}>Edit</a>
-                                </li>
-                            </ul>
-                        </li>
                 </ul>
                 <form method="POST" action={{ route('logout') }}>
                     @csrf

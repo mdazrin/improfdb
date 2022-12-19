@@ -14,9 +14,8 @@ class PersonalInfoController extends Controller
      */
     public function index()
     {
-
-        return view('personals.index',[
-            'users'=>PersonalInfo::sortable()->filter()->paginate(4),
+        return view('personalInfo.index',[
+            'personals' => PersonalInfo::with('user')->latest()->get()
         ]);
     }
 
@@ -27,7 +26,7 @@ class PersonalInfoController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -38,7 +37,15 @@ class PersonalInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+
+            'ic' => 'required|string|max:255',
+
+        ]);
+
+        $request->user()->personal()->create($validated);
+
+        return redirect(route('personalInfo.index'));
     }
 
     /**
@@ -49,7 +56,9 @@ class PersonalInfoController extends Controller
      */
     public function show(PersonalInfo $personalInfo)
     {
-        //
+        return view('personalInfo.show',[
+            'personal'=> $personalInfo
+        ]);
     }
 
     /**
@@ -60,8 +69,11 @@ class PersonalInfoController extends Controller
      */
     public function edit(PersonalInfo $personalInfo)
     {
-        return view('personals.edit',[
-            'personal'=>$personalInfo,
+
+        return view('personalInfo.edit', [
+
+            'personal' => $personalInfo,
+
         ]);
     }
 
@@ -74,7 +86,16 @@ class PersonalInfoController extends Controller
      */
     public function update(Request $request, PersonalInfo $personalInfo)
     {
-        //
+
+        $validated = $request->validate([
+
+            'message' => 'required|string|max:255',
+
+        ]);
+
+        $personalInfo->update($validated);
+
+        return redirect(route('personalInfo.index'));
     }
 
     /**

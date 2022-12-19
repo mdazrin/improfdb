@@ -22,6 +22,7 @@
                         <th scope="col">@sortablelink('ppi')</th>
                         <th scope="col">@sortablelink('batch')</th>
                         <th scope="col">Picture</th>
+                        <th scope="col">Edit</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,17 @@
                             <td>{{ $user->ppi }}</td>
                             <td>{{ $user->batch }}</td>
                             <td><img class="img-thumbnail avatar" src="{{ (asset($user->image->url)) }}"/></td>
+                            <td><form action="{{ route('users.store')}}" enctype="multipart/form-data" method="post">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <h1>header</h1>
+                                        <input type="file" name="avatar" class="form-control-file">
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary">Store</button>
+                                    </div>
+                                </form></td>
 
                         </tr>
                     @endforeach

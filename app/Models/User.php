@@ -91,6 +91,26 @@ class User extends Authenticatable
     {
         return $this->hasOne(PersonalInfo::class);
     }
+
+    public function pas()
+    {
+        return $this->hasOne(Pas::class);
+    }
+
+    public function profession()
+    {
+        return $this->hasOne(Profession::class);
+    }
+
+    public function academic()
+    {
+        return $this->hasOne(Academic::class);
+    }
+
+    public function location()
+    {
+        return $this->hasOne(Location::class);
+    }
 }
 
 
