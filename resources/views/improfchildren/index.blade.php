@@ -12,39 +12,30 @@
                     </div>
                 </div>
             </form>
+
+
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">@sortablelink('mailing_address')</th>
+                    <th scope="col">@sortablelink('first_name')</th>
+                    <th scope="col">@sortablelink('last_name')</th>
                     <th scope="col">@sortablelink('date_of_birth')</th>
-                    <th scope="col">@sortablelink('tel_no')</th>
-                    <th scope="col">@sortablelink('bank_account')</th>
-                    <th scope="col">@sortablelink('bank_name')</th>
-                    <th scope="col">@sortablelink('sex')</th>
-                    <th scope="col">@sortablelink('birthday_month')</th>
-                    <th scope="col">@sortablelink('facebook')</th>
-                    <th scope="col">@sortablelink('twitter')</th>
-                    <th scope="col">@sortablelink('instagram')</th>
+                    <th scope="col">Picture</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->mailing_address }}</td>
+                        <td>{{ $user->first_name }}</td>
+                        <td>{{ $user->last_name }}</td>
                         <td>{{ $user->date_of_birth }}</td>
-                        <td>{{ $user->tel_no }}</td>
-                        <td>{{ $user->bank_account }}</td>
-                        <td>{{ $user->bank_name }}</td>
-                        <td>{{ $user->sex }}</td>
-                        <td>{{ $user->birthday_month }}</td>
-                        <td>{{ $user->facebook }}</td>
-                        <td>{{ $user->twitter }}</td>
-                        <td>{{ $user->instagram }}</td>
+                        <td><img class="img-thumbnail avatar" src="{{ (asset($user->image->url)) }}"/></td>
 
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+
             <ul class="pagination">
                 {!! $users->links('pagination::bootstrap-5') !!}
             </ul>

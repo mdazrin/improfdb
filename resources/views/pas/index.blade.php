@@ -17,21 +17,29 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">@sortablelink('firstname')</th>
-                    <th scope="col">@sortablelink('lastname')</th>
-                    <th scope="col">@sortablelink('ppi')</th>
-                    <th scope="col">@sortablelink('batch')</th>
-                    <th scope="col">Picture</th>
+                    <th scope="col">@sortablelink('pas_no')</th>
+                    <th scope="col">@sortablelink('involvement')</th>
+                    <th scope="col">@sortablelink('cawangan')</th>
+                    <th scope="col">@sortablelink('kawasan')</th>
+                    <th scope="col">@sortablelink('negeri')</th>
+                    <th scope="col">@sortablelink('interest_one')</th>
+                    <th scope="col">@sortablelink('interest_two')</th>
+                    <th scope="col">@sortablelink('interest_three')</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->firstname }}</td>
-                        <td>{{ $user->lastname }}</td>
-                        <td>{{ $user->ppi }}</td>
-                        <td>{{ $user->batch }}</td>
-                        <td><img class="img-thumbnail avatar" src="{{ (asset($user->image->url)) }}"/></td>
+                        <td>{{ $user->pas_no }}</td>
+                        <td>{{ $user->involvement }}</td>
+                        <td>{{ $user->cawangan }}</td>
+                        <td>{{ $user->kawasan }}</td>
+                        <td>{{ $user->negeri }}</td>
+                        <td>{{ $user->interest_one }}</td>
+                        <td>{{ $user->interest_two }}</td>
+                        <td>{{ $user->interest_three }}</td>
+
 
                     </tr>
                 @endforeach

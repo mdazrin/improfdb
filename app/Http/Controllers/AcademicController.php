@@ -14,7 +14,9 @@ class AcademicController extends Controller
      */
     public function index()
     {
-        //
+        return view('academic.index',[
+            'users'=>Academic::sortable()->filter()->paginate(4),
+        ]);
     }
 
     /**

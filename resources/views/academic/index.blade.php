@@ -12,35 +12,32 @@
                     </div>
                 </div>
             </form>
+
+
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">@sortablelink('pas_no')</th>
-                    <th scope="col">@sortablelink('involvement')</th>
-                    <th scope="col">@sortablelink('cawangan')</th>
-                    <th scope="col">@sortablelink('kawasan')</th>
-                    <th scope="col">@sortablelink('negeri')</th>
-                    <th scope="col">@sortablelink('interest_one')</th>
-                    <th scope="col">@sortablelink('interest_two')</th>
-                    <th scope="col">@sortablelink('interest_three')</th>
+                    <th scope="col">@sortablelink('course')</th>
+                    <th scope="col">@sortablelink('intake')</th>
+                    <th scope="col">@sortablelink('grade_year')</th>
+                    <th scope="col">@sortablelink('academic_level')</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->pas_no }}</td>
-                        <td>{{ $user->involvement }}</td>
-                        <td>{{ $user->cawangan }}</td>
-                        <td>{{ $user->kawasan }}</td>
-                        <td>{{ $user->negeri }}</td>
-                        <td>{{ $user->interest_one }}</td>
-                        <td>{{ $user->interest_two }}</td>
-                        <td>{{ $user->interest_three }}</td>
+                        <td>{{ $user->course }}</td>
+                        <td>{{ $user->intake }}</td>
+                        <td>{{ $user->grade_year }}</td>
+                        <td>{{ $user->academic_level }}</td>
+
 
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+
             <ul class="pagination">
                 {!! $users->links('pagination::bootstrap-5') !!}
             </ul>

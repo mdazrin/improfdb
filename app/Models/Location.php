@@ -30,10 +30,10 @@ class Location extends Model
         if(request('check-user'))
         {
             $query
-                ->where('firstname','like','%' . request('check-user') . '%')
-                ->orWhere('lastname','like','%' . request('check-user') . '%')
-                ->orWhere('ppi','like','%' . request('check-user') . '%')
-                ->orWhere('batch','like','%' . request('check-user') . '%');
+                ->where('current_address','like','%' . request('check-user') . '%')
+                ->orWhere('zon','like','%' . request('check-user') . '%')
+                ->orWhere('state','like','%' . request('check-user') . '%')
+                ->orWhere('district','like','%' . request('check-user') . '%');
         }
     }
 

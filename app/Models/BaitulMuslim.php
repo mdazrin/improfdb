@@ -6,33 +6,37 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
-class Profession extends Model
+class BaitulMuslim extends Model
 {
     use HasFactory, Sortable;
 
     protected $fillable = [
 
-        'employer',
-        'field_of_work',
-        'occupation',
+        'marriage_status',
+        'spouse_name',
 
     ];
 
     public $sortable = [
 
-        'employer',
-        'field_of_work',
-        'occupation',
+        'marriage_status',
+        'spouse_name',
+
     ];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class,'imageable');
+    }
 
     public function scopeFilter($query)
     {
         if(request('check-user'))
         {
             $query
-                ->where('employer','like','%' . request('check-user') . '%')
-                ->orWhere('field_of_work','like','%' . request('check-user') . '%')
-                ->orWhere('occupation','like','%' . request('check-user') . '%');
+                ->where('marriage_status','like','%' . request('check-user') . '%')
+                ->orWhere('spouse_name','like','%' . request('check-user') . '%');
+
         }
     }
 

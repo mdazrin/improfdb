@@ -28,19 +28,25 @@
                                 <a class="dropdown-item" aria-current="page" href={{ route('users.index') }}>Improf Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" href={{ route('personal-info-table.index') }}>Personal Info</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('personalInfo.index') }}>Personal Info</a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" href={{ route('pas-table.index') }}>Pas Info</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('pas.index') }}>Pas Info</a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" href={{ route('profession-table.index') }}>Profession Info</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('profession.index') }}>Profession Info</a>
                             </li>
                             <li class="nav-item">
-                                <a class="dropdown-item" aria-current="page" href={{ route('academic-table.index') }}>Academic Info</a>
+                                <a class="dropdown-item" aria-current="page" href={{ route('academic.index') }}>Academic Info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="dropdown-item" aria-current="page" href={{ route('locations.index') }}>Location Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('baitulmuslim.index') }}>Baitul Muslim Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="dropdown-item" aria-current="page" href={{ route('improfchildren.index') }}>Children Info</a>
                             </li>
                             <li class="nav-item">
                                 <a class="dropdown-item" aria-current="page" href={{ route('profile.edit') }}>Edit Profile</a>

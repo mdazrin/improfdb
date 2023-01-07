@@ -14,7 +14,9 @@ class ProfessionController extends Controller
      */
     public function index()
     {
-        //
+        return view('profession.index',[
+            'users'=>Profession::sortable()->filter()->paginate(4),
+        ]);
     }
 
     /**

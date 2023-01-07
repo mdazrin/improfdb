@@ -12,24 +12,28 @@
                     </div>
                 </div>
             </form>
+
+
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th scope="col">@sortablelink('employer')</th>
-                    <th scope="col">@sortablelink('field_of_work')</th>
-                    <th scope="col">@sortablelink('occupation')</th>
+                    <th scope="col">@sortablelink('marriage_status')</th>
+                    <th scope="col">@sortablelink('spouse_name')</th>
+                    <th scope="col">Picture</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td>{{ $user->employer }}</td>
-                        <td>{{ $user->field_of_work }}</td>
-                        <td>{{ $user->occupation }}</td>
+                        <td>{{ $user->marriage_status }}</td>
+                        <td>{{ $user->spouse_name }}</td>
+                        <td><img class="img-thumbnail avatar" src="{{ (asset($user->image->url)) }}"/></td>
+
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+
             <ul class="pagination">
                 {!! $users->links('pagination::bootstrap-5') !!}
             </ul>

@@ -1,19 +1,17 @@
 <?php
 
 
+use App\Http\Controllers\AcademicController;
+use App\Http\Controllers\BaitulMuslimController;
+use App\Http\Controllers\ImprofChildrenController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PasController;
 use \App\Http\Controllers\PersonalInfoController;
+use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SessionController;
-
-use App\Http\Controllers\AcademicTableController;
-use App\Http\Controllers\PasTableController;
-use App\Http\Controllers\ProfessionTableController;
-use App\Http\Controllers\PersonalTableController;
-use App\Http\Controllers\ImprofTableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,17 +45,15 @@ Route::post('/logout',[LogoutController::class,'logout'])
     ->middleware('auth')
     ->name('logout');
 
-//output tables only
-//Route::resource('improf-profiles-table',ImprofTableController::class)->only('index');
-Route::resource('personal-info-table',PersonalTableController::class)->only('index');
-Route::resource('pas-table',PasTableController::class)->only('index');
-Route::resource('profession-table',ProfessionTableController::class)->only('index');
-Route::resource('academic-table',AcademicTableController::class)->only('index');
-
 //model
-Route::resource('personalInfo',PersonalInfoController::class)->only('index','show','store','edit','update');
 Route::resource('users',UserController::class)->only(['index','edit','update','store']);
+Route::resource('personalInfo',PersonalInfoController::class)->only('index','show','store','edit','update');
+Route::resource('pas',PasController::class)->only(['index','edit','update','store']);
+Route::resource('profession',ProfessionController::class)->only(['index','edit','update','store']);
+Route::resource('academic',AcademicController::class)->only(['index','edit','update','store']);
 Route::resource('locations',LocationController::class)->only(['index','edit','update','store']);
+Route::resource('baitulmuslim',BaitulMuslimController::class)->only(['index','edit','update','store']);
+Route::resource('improfchildren',ImprofChildrenController::class)->only(['index','edit','update','store']);
 
 //User self-edit profile
 Route::middleware('auth')->group(function () {

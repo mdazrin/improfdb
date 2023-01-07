@@ -32,7 +32,10 @@ class Academic extends Model
         if(request('check-user'))
         {
             $query
-                ->where('mailing_address','like','%' . request('check-user') . '%');
+                ->where('course','like','%' . request('check-user') . '%')
+                ->orWhere('intake','like','%' . request('check-user') . '%')
+                ->orWhere('grade_year','like','%' . request('check-user') . '%')
+                ->orWhere('academic_level','like','%' . request('check-user') . '%');
         }
     }
 

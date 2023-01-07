@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pas;
+use App\Models\ImprofChildren;
 use Illuminate\Http\Request;
 
-class PasController extends Controller
+class ImprofChildrenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class PasController extends Controller
      */
     public function index()
     {
-        return view('pas.index',[
-            'users'=>Pas::sortable()->filter()->paginate(4),
-        ]);
+        //
     }
 
     /**
@@ -37,24 +35,16 @@ class PasController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-
-            'involvement' => 'required|string|max:255',
-
-        ]);
-
-        $request->user()->pas()->create($validated);
-
-        return redirect(route('pas.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pas  $pas
+     * @param  \App\Models\ImprofChildren  $improfChildren
      * @return \Illuminate\Http\Response
      */
-    public function show(Pas $pas)
+    public function show(ImprofChildren $improfChildren)
     {
         //
     }
@@ -62,45 +52,33 @@ class PasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pas  $pas
+     * @param  \App\Models\ImprofChildren  $improfChildren
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pas $pas)
+    public function edit(ImprofChildren $improfChildren)
     {
-        return view('pas.edit', [
-
-            'pas' => $pas,
-
-        ]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pas  $pas
+     * @param  \App\Models\ImprofChildren  $improfChildren
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pas $pas)
+    public function update(Request $request, ImprofChildren $improfChildren)
     {
-        $validated = $request->validate([
-
-            'message' => 'required|string|max:255',
-
-        ]);
-
-        $personalInfo->update($validated);
-
-        return redirect(route('personalInfo.index'));
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pas  $pas
+     * @param  \App\Models\ImprofChildren  $improfChildren
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pas $pas)
+    public function destroy(ImprofChildren $improfChildren)
     {
         //
     }

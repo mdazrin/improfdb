@@ -111,6 +111,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(Location::class);
     }
+
+    public function baitulmuslim()
+    {
+        return $this->hasMany(BaitulMuslim::class);
+    }
+
+    public function improfchildren()
+    {
+        return $this->hasMany(ImprofChildren::class);
+    }
 }
 
 

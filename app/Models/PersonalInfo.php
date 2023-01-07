@@ -45,7 +45,17 @@ class PersonalInfo extends Model
         if(request('check-user'))
         {
             $query
-                ->where('mailing_address','like','%' . request('check-user') . '%');
+                ->where('ic','like','%' . request('check-user') . '%')
+                ->orWhere('mailing_address','like','%' . request('check-user') . '%')
+                ->orWhere('date_of_birth','like','%' . request('check-user') . '%')
+                ->orWhere('tel_no','like','%' . request('check-user') . '%')
+                ->orWhere('bank_account','like','%' . request('check-user') . '%')
+                ->orWhere('bank_name','like','%' . request('check-user') . '%')
+                ->orWhere('sex','like','%' . request('check-user') . '%')
+                ->orWhere('birthday_month','like','%' . request('check-user') . '%')
+                ->orWhere('facebook','like','%' . request('check-user') . '%')
+                ->orWhere('twitter','like','%' . request('check-user') . '%')
+                ->orWhere('instagram','like','%' . request('check-user') . '%');
         }
     }
 

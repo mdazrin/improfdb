@@ -40,7 +40,14 @@ class Pas extends Model
         if(request('check-user'))
         {
             $query
-                ->where('mailing_address','like','%' . request('check-user') . '%');
+                ->where('pas_no','like','%' . request('check-user') . '%')
+                ->orwhere('involvement','like','%' . request('check-user') . '%')
+                ->orwhere('cawangan','like','%' . request('check-user') . '%')
+                ->orwhere('kawasan','like','%' . request('check-user') . '%')
+                ->orwhere('negeri','like','%' . request('check-user') . '%')
+                ->orwhere('interest_one','like','%' . request('check-user') . '%')
+                ->orwhere('interest_two','like','%' . request('check-user') . '%')
+                ->orwhere('interest_three','like','%' . request('check-user') . '%');
         }
     }
 

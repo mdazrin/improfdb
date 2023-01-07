@@ -15,7 +15,7 @@ class PersonalInfoController extends Controller
     public function index()
     {
         return view('personalInfo.index',[
-            'personals' => PersonalInfo::with('user')->latest()->get()
+            'users'=>PersonalInfo::sortable()->filter()->paginate(4),
         ]);
     }
 
